@@ -1,0 +1,7 @@
+1) To get the last digit of an integer, modulo by 10 e.g. 121 % 10 = 1
+2) To remove the last digit of an integer, divide it by 10 e.g. 121 / 10 = 12
+3) To accumulate the digits removed from step 2 multiply the accumulated value by 10
+   then add value in step 1 e.g. accum = accum * 10 + 1
+
+Integer.MAX_VALUE is 2147483647 hence the last digit '7' for pop
+Integer.MIN_VALUE is -2147483648 hence the last digit '-8' for pop
