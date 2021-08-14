@@ -19,8 +19,15 @@ public class _07_ReverseInteger {
         while (x != 0) {
             int pop = x % 10;
             x /= 10;
+
+            // Integer.MAX_VALUE is 2147483647 hence the last digit '7' for pop
+            // is check for overflow
             if (rev > Integer.MAX_VALUE / 10 || (rev == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+
+            // Integer.MIN_VALUE is -2147483648 hence the last digit '-8' for pop
+            // is the check for overflow
             if (rev < Integer.MIN_VALUE / 10 || (rev == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+
             rev = rev * 10 + pop;
         }
         return rev;
