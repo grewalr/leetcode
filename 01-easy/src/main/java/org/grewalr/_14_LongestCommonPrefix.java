@@ -5,39 +5,40 @@ import java.util.Map;
 
 public class _14_LongestCommonPrefix {
 
-    // NOTES:
-
     public String longestCommonPrefix(String[] strs) {
-        // Possible look at tree data structure??
+        if (strs == null || strs.length == 0) return "";
 
+        // Set the longest prefix to be the first
+        // string in the list of strings
+        String longestPrefix = strs[0];
 
+        // Loop all strings in the array starting from index 1
+        for (int i = 1; i < strs.length; i++) {
+            String sampleStr = strs[i];
 
+            // Check first string and second string to
+            // get the longest prefix then continue to
+            // next string
+//            {"flower", "flow", "flight"}
 
-        return "";
+            while (sampleStr.indexOf(longestPrefix) != 0) {
+                longestPrefix = longestPrefix.substring(0, longestPrefix.length() - 1);
+            }
+        }
+
+        return longestPrefix;
     }
 
     public static void main(String[] args) {
         _14_LongestCommonPrefix lcp = new _14_LongestCommonPrefix();
 
-        String a1 = lcp.longestCommonPrefix(new String[]{ "II", "" });
-        System.out.println(a1);
+        String[] strs1 = {"flower", "flow", "flight"};
+        System.out.println(lcp.longestCommonPrefix(strs1));
 
-        String a = lcp.longestCommonPrefix(new String[]{"III", ""});
-        System.out.println(a);
+        String[] strs2 = {"dog", "racecar", "car"};
+        System.out.println(lcp.longestCommonPrefix(strs2));
 
-        String b = lcp.longestCommonPrefix(new String[]{"IV", ""});
-        System.out.println(b);
-
-        String c = lcp.longestCommonPrefix(new String[]{"IX", ""});
-        System.out.println(c);
-
-        String d = lcp.longestCommonPrefix(new String[]{"LVIII", ""});
-        System.out.println(d);
-
-        String e = lcp.longestCommonPrefix(new String[]{"MCMXCIV", ""});
-        System.out.println(e);
-
-        String f = lcp.longestCommonPrefix(new String[]{"DXCI", ""});
-        System.out.println(f);
+        String[] strs3 = null;
+        System.out.println(lcp.longestCommonPrefix(strs3));
     }
 }
