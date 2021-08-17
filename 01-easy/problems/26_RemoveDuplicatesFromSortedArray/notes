@@ -1,0 +1,7 @@
+This is an example of a two pointer problem i.e. fast pointer and a slow pointer.
+
+i = slow pointer
+j = fast pointer
+
+returning the number of distinct elements in the array as this will be the size when
+the array is traversed to get the distinct numbers.
