@@ -1,0 +1,13 @@
+https://leetcode.com/problems/remove-element/
+---------------------------------------------
+
+Solution
+--------
+Complexity analysis
+
+Time complexity : O(n). Assume the array has a total of nn elements,
+both i and j traverse at most 2n steps.
+
+Space complexity : O(1).
+
+Again another 2 pointer problem using i and j.
