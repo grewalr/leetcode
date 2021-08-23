@@ -1,13 +1,16 @@
 package com.grewalr.disjointset;
 
-public class QuickUnion {
+public class _03_UnionByRank {
 
     int[] root;
+    int[] rank;
 
-    public QuickUnion(int size) {
+    public _03_UnionByRank(int size) {
         root = new int[size];
+        rank = new int[size];
         for (int i = 0; i < size; i++) {
             root[i] = i;
+            rank[i] = 1;
         }
     }
 
@@ -22,7 +25,14 @@ public class QuickUnion {
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
-            root[rootY] = rootX;
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
+            }
         }
     }
 
@@ -31,8 +41,7 @@ public class QuickUnion {
     }
 
     public static void main(String[] args) throws Exception {
-        QuickUnion uf = new QuickUnion(10);
-
+        _03_UnionByRank uf = new _03_UnionByRank(10);
         // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2);
         uf.union(2, 5);
@@ -43,7 +52,6 @@ public class QuickUnion {
         System.out.println(uf.connected(1, 5)); // true
         System.out.println(uf.connected(5, 7)); // true
         System.out.println(uf.connected(4, 9)); // false
-
         // 1-2-5-6-7 3-8-9-4
         uf.union(9, 4);
         System.out.println(uf.connected(4, 9)); // true

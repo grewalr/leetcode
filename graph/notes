@@ -1,0 +1,23 @@
+https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/
+--------------------------------------------------------------------
+
+05_DisjointSetOptimised
+
+Start rank with 1s
+Start root nodes to be the index of all in the array
+
+root array
++---+---+---+---+---+
+| 0 | 1 | 2 | 3 | 4 |   Value
++---+---+---+---+---+
+| 0 | 1 | 2 | 3 | 4 |   Index
++---+---+---+---+---+
+
+rank array (start)
++---+---+---+---+---+
+| 1 | 1 | 1 | 1 | 1 |   Value
++---+---+---+---+---+
+| 0 | 1 | 2 | 3 | 4 |   Index
++---+---+---+---+---+
+
+Rank sets a head node in the set.

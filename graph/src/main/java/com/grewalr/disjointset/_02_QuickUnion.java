@@ -1,11 +1,10 @@
 package com.grewalr.disjointset;
 
-// UnionFind.class
-class QuickFind {
+public class _02_QuickUnion {
 
     int[] root;
 
-    public QuickFind(int size) {
+    public _02_QuickUnion(int size) {
         root = new int[size];
         for (int i = 0; i < size; i++) {
             root[i] = i;
@@ -13,18 +12,17 @@ class QuickFind {
     }
 
     public int find(int x) {
-        return root[x];
+        while (x != root[x]) {
+            x = root[x];
+        }
+        return x;
     }
 
     public void union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
-            for (int i = 0; i < root.length; i++) {
-                if (root[i] == rootY) {
-                    root[i] = rootX;
-                }
-            }
+            root[rootY] = rootX;
         }
     }
 
@@ -32,9 +30,9 @@ class QuickFind {
         return find(x) == find(y);
     }
 
-
     public static void main(String[] args) throws Exception {
-        QuickFind uf = new QuickFind(10);
+        _02_QuickUnion uf = new _02_QuickUnion(10);
+
         // 1-2-5-6-7 3-8-9 4
         uf.union(1, 2);
         uf.union(2, 5);
@@ -42,7 +40,6 @@ class QuickFind {
         uf.union(6, 7);
         uf.union(3, 8);
         uf.union(8, 9);
-
         System.out.println(uf.connected(1, 5)); // true
         System.out.println(uf.connected(5, 7)); // true
         System.out.println(uf.connected(4, 9)); // false
