@@ -7,7 +7,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>02-medium</artifactId>
+    <artifactId>03-hard-lc</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
@@ -56,7 +56,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
+        <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
